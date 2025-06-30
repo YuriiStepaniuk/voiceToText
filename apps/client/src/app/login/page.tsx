@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { loginSchema } from '@/lib/validations/auth-schemas';
+import PasswordInput from '@/components/auth/PasswordInput';
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
@@ -40,7 +41,7 @@ const Login = () => {
           isRequired
         />
 
-        <CustomInput
+        <PasswordInput
           label="Password"
           type="password"
           {...register('password')}
