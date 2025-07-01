@@ -1,7 +1,16 @@
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+
 import { AudioUploader } from './components/AudioUploadForm';
 import { TranscriptionList } from './components/TranscriptionList';
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const { userId } = await auth();
+
+  if (!userId) {
+    redirect('/sign-in');
+  }
+
   return (
     <div className="flex">
       {/* Sidebar */}

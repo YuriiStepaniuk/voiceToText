@@ -10,7 +10,7 @@ const AuthFooterLink: React.FC<AuthFooterLinkProps> = ({ haveAccount }) => {
     <div className="text-center text-gray-400 mt-4">
       {haveAccount ? 'Already have an account? ' : `Don't have an account? `}
       <Link
-        href={haveAccount ? routes.login : routes.register}
+        href={haveAccount ? routes.signIn : routes.signUp}
         className="text-white hover:text-gray-300 hover:underline"
       >
         {haveAccount ? 'Login' : 'Register'}
