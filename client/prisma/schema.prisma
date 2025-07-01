@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -12,8 +12,9 @@ model User {
   id  String @id @default(cuid())
   clerkId String @unique
   email String @unique
+  name String?
   credits Int @default(2)
-  stripeId String
+  stripeId String?
   plan PlanType @default(FREE)
   transcriptions Transcription[]
   createdAt DateTime       @default(now())
